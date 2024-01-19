@@ -1,5 +1,5 @@
-import Content from '@/app/Login/components';
-import Core from '@/app/Login/core';
+import Content from '@/app/Register/components';
+import Core from '@/app/Register/core';
 
 const Page = (props) => (
     <Core
