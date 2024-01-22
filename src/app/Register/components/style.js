@@ -6,7 +6,8 @@ const useStyles = makeStyles((theme) => ({
 			background: "#FFFFFF0F",
 			borderColor: "#ffffff",
 			color: '#FFFFFF',
-			padding: '18.5px 14px'
+			padding: '18.5px 14px',
+			borderRadius: '9px'
 		}
 	},
 	formWithIcon: {
@@ -14,7 +15,8 @@ const useStyles = makeStyles((theme) => ({
 			background: "#FFFFFF0F",
 			borderColor: "#ffffff",
 			color: '#FFFFFF',
-			padding: '18.5px 50px 18.5px 14px'
+			padding: '18.5px 50px 18.5px 14px',
+			borderRadius: '9px'
 		},
 		'& .buttonToggle': {
 			marginRight:  '0',

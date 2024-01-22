@@ -3,6 +3,7 @@ import api from '@/helpers/axios';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useRouter } from 'next/router';
+import Layout from '@/app/theme/layout';
 
 const Core = (props) => {
   const {
@@ -53,9 +54,6 @@ const Core = (props) => {
           username: formik.values.username,
           password: formik.values.password,
         });
-        // setTimeout(() => {
-        //   router.push('/');
-        // }, 3000);
         if (!response) throw response;
         if (typeof response.data.access_token !== 'undefined') {
         	window.toastMessage({
@@ -64,6 +62,9 @@ const Core = (props) => {
 	          text: response.data.message,
 	        });
 	        localStorage.setItem("token", response.data.access_token);
+          setTimeout(() => {
+            router.push('/profile');
+          }, 1000);
         } else {
         	window.toastMessage({
 	          open: true,
@@ -78,14 +79,16 @@ const Core = (props) => {
 
   return (
   	<>
-	    <Content
-	    	values={values}
-	    	formik={formik}
-	    	handleChange={handleChange}
-	    	handleClickShowPassword={handleClickShowPassword}
-	    	handleMouseDownPassword={handleMouseDownPassword}
-	    	router={router}
-	    />
+      <Layout>
+  	    <Content
+  	    	values={values}
+  	    	formik={formik}
+  	    	handleChange={handleChange}
+  	    	handleClickShowPassword={handleClickShowPassword}
+  	    	handleMouseDownPassword={handleMouseDownPassword}
+  	    	router={router}
+	     />
+      </Layout>
 	  </>
    );
 

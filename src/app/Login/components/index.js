@@ -44,7 +44,7 @@ const Content = (props) => {
                 value={formik.values.email}
                 onChange={formik.handleChange} 
                 className="w-full rounded" 
-                placeholder="Enter Username/Email"
+                placeholder="Enter Email"
                 error={!!(formik.touched.email && formik.errors.email)}
                 helperText={(formik.touched.email && formik.errors.email) || ''}
               />

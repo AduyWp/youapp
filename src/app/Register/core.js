@@ -3,6 +3,7 @@ import api from '@/helpers/axios';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useRouter } from 'next/router';
+import Layout from '@/app/theme/layout';
 
 const Core = (props) => {
   const {
@@ -60,7 +61,6 @@ const Core = (props) => {
           password: formik.values.password,
         });
         if (!response) throw response;
-        console.log(response)
         if (response.data.message === 'User has been created successfully') {
         	window.toastMessage({
 	          open: true,
@@ -69,7 +69,7 @@ const Core = (props) => {
 	        });
           setTimeout(() => {
             router.push('/');
-          }, 3000);
+          }, 1000);
         } else {
         	window.toastMessage({
 	          open: true,
@@ -84,15 +84,17 @@ const Core = (props) => {
 
   return (
   	<>
-	    <Content
-	    	values={values}
-	    	formik={formik}
-	    	handleChange={handleChange}
-	    	handleClickShowPassword={handleClickShowPassword}
-	    	handleMouseDownPassword={handleMouseDownPassword}
-	    	router={router}
-        handleClickShowConfirmPassword={handleClickShowConfirmPassword}
-	    />
+      <Layout>
+  	    <Content
+  	    	values={values}
+  	    	formik={formik}
+  	    	handleChange={handleChange}
+  	    	handleClickShowPassword={handleClickShowPassword}
+  	    	handleMouseDownPassword={handleMouseDownPassword}
+  	    	router={router}
+          handleClickShowConfirmPassword={handleClickShowConfirmPassword}
+  	    />
+      </Layout>
 	  </>
    );
 
